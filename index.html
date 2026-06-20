@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samaki House · Fresh Tilapia Delivered in Nairobi</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#fff5f5;
+  --card:#ffffff;
+  --text:#1a1a1a;
+  --text2:#6b4f4f;
+  --red:#d32f2f;
+  --red2:#b71c1c;
+  --red3:#ffebee;
+  --red4:#ffcdd2;
+  --accent:#e53935;
+  --accent2:#ffebee;
+  --yellow:#f9c74f;
+  --yellow2:#fff8e1;
+  --green:#43a047;
+  --green2:#e8f5e9;
+  --border:rgba(211,47,47,0.12);
+  --shadow:0 8px 32px rgba(211,47,47,0.08);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Nunito',sans-serif;font-weight:400;line-height:1.7;overflow-x:hidden}
+
+body::before{content:'';position:fixed;top:-120px;right:-120px;width:400px;height:400px;border-radius:50%;background:var(--red4);opacity:0.2;z-index:0;pointer-events:none;animation:float 20s ease-in-out infinite}
+body::after{content:'';position:fixed;bottom:-80px;left:-80px;width:300px;height:300px;border-radius:50%;background:var(--accent);opacity:0.08;z-index:0;pointer-events:none;animation:float 18s ease-in-out infinite reverse}
+
+.floating-deco{position:fixed;z-index:0;pointer-events:none;font-size:24px;opacity:0.1}
+.fd1{top:15%;left:5%;animation:float 14s ease-in-out infinite}
+.fd2{top:40%;right:6%;animation:float 16s ease-in-out infinite 2s}
+.fd3{bottom:25%;left:8%;animation:float 12s ease-in-out infinite 1s}
+.fd4{top:60%;left:4%;animation:float 18s ease-in-out infinite 3s}
+.fd5{bottom:10%;right:5%;animation:float 15s ease-in-out infinite 0.5s}
+
+.fish-float{position:fixed;z-index:0;pointer-events:none;opacity:0.07;font-size:clamp(28px,3vw,40px)}
+.f1{top:18%;left:25%;animation:float 17s ease-in-out infinite}
+.f2{top:55%;right:8%;animation:float 19s ease-in-out infinite 3s}
+.f3{bottom:40%;left:12%;animation:float 14s ease-in-out infinite 1.5s}
+.f4{top:70%;right:20%;animation:float 16s ease-in-out infinite 6s}
+.f5{bottom:8%;left:50%;animation:float 13s ease-in-out infinite 4s}
+.f6{top:35%;left:50%;animation:float 18s ease-in-out infinite 2s}
+.f7{top:8%;right:35%;animation:float 15s ease-in-out infinite 7s}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  25%{transform:translateY(-20px) rotate(3deg)}
+  50%{transform:translateY(-8px) rotate(-2deg)}
+  75%{transform:translateY(-16px) rotate(2deg)}
+}
+
+@keyframes bounceIn{
+  0%{opacity:0;transform:translateY(40px) scale(0.96)}
+  60%{transform:translateY(-6px) scale(1.02)}
+  80%{transform:translateY(3px) scale(0.99)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+.bounce-in{animation:bounceIn 0.8s cubic-bezier(0.34,1.56,0.64,1) forwards}
+
+@keyframes wiggle{
+  0%,100%{transform:rotate(0deg)}
+  25%{transform:rotate(-8deg)}
+  50%{transform:rotate(8deg)}
+  75%{transform:rotate(-4deg)}
+}
+.wiggle-hover:hover{animation:wiggle 0.5s ease-in-out}
+
+@keyframes gentlePulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.04)}
+}
+.pulse-soft{animation:gentlePulse 3s ease-in-out infinite}
+
+@keyframes fishSwim{
+  0%{transform:translateX(-30px) scaleX(1)}
+  50%{transform:translateX(30px) scaleX(1)}
+  51%{transform:translateX(30px) scaleX(-1)}
+  100%{transform:translateX(-30px) scaleX(-1)}
+}
+.fish-swim{display:inline-block;animation:fishSwim 8s ease-in-out infinite}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:14px 48px;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+nav .nav-name{font-family:'Fredoka',sans-serif;font-size:22px;font-weight:600;color:var(--text);letter-spacing:-0.3px}
+nav .nav-name span{color:var(--red)}
+nav .nav-name .fish-icon{display:inline-block;animation:fishSwim 8s ease-in-out infinite;font-size:20px}
+nav a.nav-cta{font-family:'Fredoka',sans-serif;font-size:15px;font-weight:500;color:#fff;background:var(--red);padding:10px 28px;text-decoration:none;border-radius:50px;transition:all 0.25s;display:inline-block}
+nav a.nav-cta:hover{background:var(--red2);transform:translateY(-2px) scale(1.04);box-shadow:0 6px 20px rgba(211,47,47,0.3)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:70px;position:relative;z-index:1}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 56px 80px 64px;position:relative}
+.hero-eyebrow{font-size:13px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;background:var(--red3);display:inline-block;padding:4px 16px;border-radius:50px;animation:bounceIn 0.8s 0.1s cubic-bezier(0.34,1.56,0.64,1) both}
+.hero-title{font-family:'Fredoka',sans-serif;font-size:clamp(48px,6.5vw,78px);line-height:1;font-weight:600;letter-spacing:-1px;margin-bottom:10px;color:var(--text);animation:bounceIn 0.8s 0.2s cubic-bezier(0.34,1.56,0.64,1) both}
+.hero-title em{color:var(--red);font-style:normal;display:block}
+.hero-sub{font-size:17px;color:var(--red);font-weight:600;margin-bottom:10px;animation:bounceIn 0.8s 0.3s cubic-bezier(0.34,1.56,0.64,1) both}
+.hero-price{font-family:'Fredoka',sans-serif;font-size:clamp(22px,3vw,32px);color:var(--accent);font-weight:600;margin-bottom:8px;animation:bounceIn 0.8s 0.33s cubic-bezier(0.34,1.56,0.64,1) both}
+.hero-body{font-size:15px;color:var(--text2);max-width:440px;margin-bottom:32px;animation:bounceIn 0.8s 0.4s cubic-bezier(0.34,1.56,0.64,1) both}
+.hero-left > div{animation:bounceIn 0.8s 0.5s cubic-bezier(0.34,1.56,0.64,1) both}
+.cta-primary{display:inline-block;background:var(--accent);color:#fff;font-family:'Fredoka',sans-serif;font-size:16px;font-weight:500;padding:16px 40px;text-decoration:none;border-radius:50px;transition:all 0.25s;margin-right:14px;box-shadow:0 4px 16px rgba(211,47,47,0.2)}
+.cta-primary:hover{background:var(--red2);transform:translateY(-3px) scale(1.04);box-shadow:0 8px 28px rgba(211,47,47,0.3)}
+.cta-secondary{display:inline-block;color:var(--red);font-size:15px;font-weight:600;text-decoration:none;border-bottom:2px solid var(--yellow);padding-bottom:2px;transition:all 0.2s}
+.cta-secondary:hover{color:var(--red2);border-bottom-color:var(--accent)}
+.hero-right{position:relative;overflow:hidden;border-radius:40px 0 0 40px;margin:40px 0 40px 0;background:var(--red3);background-image:url('IMG-20260620-WA0008.jpg');background-size:cover;background-position:center;animation:bounceIn 0.9s 0.1s cubic-bezier(0.34,1.56,0.64,1) both}
+.hero-right::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,235,238,0.85),rgba(255,205,210,0.6));z-index:1}
+.hero-right .hero-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:20px;position:relative;z-index:2}
+.hero-right .hero-img-placeholder .initials{font-family:'Fredoka',sans-serif;font-size:clamp(80px,12vw,160px);color:var(--red);opacity:0.15;letter-spacing:4px;font-weight:700}
+.hero-right .hero-img-placeholder::before{content:'🐟 🐠 🐟';position:absolute;top:20px;right:30px;font-size:22px;opacity:0.5;letter-spacing:6px;animation:gentlePulse 3s ease-in-out infinite}
+.hero-right::after{content:'🐟';position:absolute;bottom:24px;left:24px;font-size:28px;opacity:0.35;animation:fishSwim 6s ease-in-out infinite;z-index:2}
+
+/* SECTION LABEL */
+.section-label{font-size:12px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;display:inline-block;background:var(--red3);padding:4px 16px;border-radius:50px}
+
+/* ABOUT/BIO */
+.bio{padding:80px 64px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+
+.bio-photo{aspect-ratio:1;max-width:300px;width:100%;border-radius:50%;object-fit:cover;display:block;margin:0 auto;box-shadow:var(--shadow);border:4px solid #fff;transition:all 0.4s}
+.bio-photo:hover{transform:scale(1.04);border-color:var(--accent);box-shadow:0 0 0 4px var(--accent2),var(--shadow)}
+.bio-content h2{font-family:'Fredoka',sans-serif;font-size:clamp(32px,3.5vw,48px);font-weight:600;letter-spacing:-0.5px;margin-bottom:16px}
+.bio-content h2 span{color:var(--red)}
+.bio-content p{font-size:15px;color:var(--text2);margin-bottom:14px;max-width:500px}
+.bio-content p strong{color:var(--text);font-weight:700}
+.bio-tag{display:inline-block;background:var(--red3);color:var(--red);font-size:12px;font-weight:600;padding:5px 16px;margin:3px 4px;border-radius:50px;transition:all 0.25s;cursor:default}
+.bio-tag:hover{background:var(--accent2);color:var(--accent);transform:translateY(-2px) scale(1.04)}
+
+/* IMAGE STRIP */
+.img-strip{padding:0 64px;position:relative;z-index:1;margin-top:-20px}
+.img-strip-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;border-radius:28px;overflow:hidden;box-shadow:0 8px 32px rgba(211,47,47,0.1)}
+.img-strip-item{height:180px;overflow:hidden;position:relative}
+.img-strip-item img{width:100%;height:100%;object-fit:cover;transition:all 0.5s}
+.img-strip-item:hover img{transform:scale(1.08)}
+.img-strip-item .strip-label{position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:linear-gradient(transparent,rgba(0,0,0,0.5));color:#fff;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase}
+
+/* PRODUCT SECTION */
+.products{padding:80px 64px;position:relative;z-index:1}
+.products::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--red),var(--accent),var(--yellow),var(--green),var(--red));background-size:200% 100%;animation:gradientSlide 6s ease infinite}
+@keyframes gradientSlide{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+.products h2{font-family:'Fredoka',sans-serif;font-size:clamp(32px,3.5vw,48px);font-weight:600;margin-bottom:8px;letter-spacing:-0.5px}
+.products > p{font-size:15px;color:var(--text2);margin-bottom:40px;max-width:520px}
+.products-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.product-card{background:var(--card);padding:32px 28px;border-radius:24px;transition:all 0.3s;border:1px solid var(--border);position:relative;overflow:hidden}
+.product-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
+.product-card:hover::after{transform:scaleX(1)}
+.product-card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 16px 48px rgba(211,47,47,0.12);border-color:var(--red4)}
+.product-card:nth-child(1)::after{background:var(--accent)}
+.product-card:nth-child(2)::after{background:var(--red)}
+.product-card:nth-child(3)::after{background:var(--accent)}
+.product-card:nth-child(4)::after{background:var(--green)}
+.product-icon{font-size:36px;margin-bottom:12px;display:inline-block;background:var(--bg);padding:12px;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,0.04);transition:all 0.3s}
+.product-card:hover .product-icon{transform:scale(1.15) rotate(-6deg);background:var(--red3)}
+.product-card h3{font-family:'Fredoka',sans-serif;font-size:20px;font-weight:600;color:var(--text);margin-bottom:8px}
+.product-card p{font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:14px}
+.price-tag{display:inline-block;background:var(--green2);color:var(--text);font-family:'Fredoka',sans-serif;font-size:18px;font-weight:600;padding:6px 18px;border-radius:50px;margin:8px 0 4px}
+.price-tag .price-usd{font-size:12px;font-weight:400;color:var(--text2);font-family:'Nunito',sans-serif;margin-left:4px}
+.product-card:nth-child(1) .price-tag{background:var(--accent2);color:var(--accent)}
+.product-card:nth-child(2) .price-tag{background:var(--red3);color:var(--red)}
+.product-card:nth-child(3) .price-tag{background:var(--accent2);color:var(--accent)}
+.product-card:nth-child(4) .price-tag{background:var(--green2);color:var(--text)}
+.product-card ul{list-style:none}
+.product-card ul li{font-size:13px;color:var(--text2);padding:5px 0;border-bottom:1px solid rgba(211,47,47,0.06);transition:all 0.2s}
+.product-card ul li:hover{color:var(--text);padding-left:4px}
+.product-card ul li::before{content:'🐟 ';color:var(--red);font-weight:700}
+.product-btn{display:inline-block;margin-top:16px;padding:11px 28px;background:var(--accent);color:#fff;font-family:'Fredoka',sans-serif;font-size:14px;font-weight:500;text-decoration:none;border-radius:50px;transition:all 0.3s;border:none;cursor:pointer}
+.product-btn:hover{background:var(--red2);transform:translateY(-3px) scale(1.04);box-shadow:0 6px 20px rgba(211,47,47,0.25)}
+.product-card:nth-child(1) .product-btn{background:var(--red);box-shadow:0 4px 16px rgba(211,47,47,0.2)}
+.product-card:nth-child(1) .product-btn:hover{background:var(--red2)}
+.product-card:nth-child(3) .product-btn{background:var(--accent);box-shadow:0 4px 16px rgba(211,47,47,0.2)}
+.product-card:nth-child(3) .product-btn:hover{background:var(--red2)}
+.product-card:nth-child(4) .product-btn{background:var(--accent);box-shadow:0 4px 16px rgba(211,47,47,0.2)}
+.product-card:nth-child(4) .product-btn:hover{background:var(--red2)}
+
+/* DELIVERY SECTION */
+.about-more{padding:80px 64px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+
+.about-more h2{font-family:'Fredoka',sans-serif;font-size:clamp(28px,3.5vw,44px);font-weight:600;letter-spacing:-0.5px;margin-bottom:14px}
+.about-more h2 span{color:var(--red)}
+.about-more p{font-size:15px;color:var(--text2);max-width:460px;margin-bottom:12px}
+.about-more .quote-bubble{background:linear-gradient(135deg,var(--red3),#fff);border-radius:28px 28px 28px 8px;padding:36px 36px;position:relative;margin-bottom:28px;max-width:480px;transition:all 0.3s}
+.about-more .quote-bubble:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:0 12px 40px rgba(211,47,47,0.08)}
+.about-more .quote-bubble::before{content:'🐟';position:absolute;top:4px;left:16px;font-size:56px;opacity:0.12;line-height:1;animation:gentlePulse 4s ease-in-out infinite}
+.about-more blockquote{font-size:clamp(16px,1.8vw,20px);font-weight:600;line-height:1.55;color:var(--text);font-style:italic;margin-bottom:12px}
+.about-more .quote-author{font-size:13px;font-weight:700;color:var(--red)}
+.about-img{position:relative;border-radius:20px;overflow:hidden;margin-top:20px;box-shadow:0 4px 20px rgba(211,47,47,0.1)}
+.about-img img{width:100%;height:200px;object-fit:cover;display:block;transition:all 0.5s}
+.about-img:hover img{transform:scale(1.05)}
+.about-img-overlay{position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(transparent,rgba(0,0,0,0.5));color:#fff;font-size:13px;font-weight:600;letter-spacing:0.5px}
+
+/* WHY */
+.why{padding:80px 64px;background:var(--card);text-align:center;position:relative;z-index:1}
+.why h2{font-family:'Fredoka',sans-serif;font-size:clamp(32px,3.5vw,48px);font-weight:600;margin-bottom:40px;letter-spacing:-0.5px}
+.why h2 span{color:var(--red)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{background:var(--bg);padding:36px 28px;border-radius:24px;border:1px solid var(--border);transition:all 0.3s;cursor:default}
+.why-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 48px rgba(211,47,47,0.12);border-color:var(--red4)}
+.why-card:nth-child(1):hover .emoji{animation:wiggle 0.5s ease-in-out}
+.why-card:nth-child(2):hover .emoji{animation:wiggle 0.5s ease-in-out 0.1s}
+.why-card:nth-child(3):hover .emoji{animation:wiggle 0.5s ease-in-out 0.2s}
+.why-card .emoji{font-size:40px;margin-bottom:10px;display:inline-block;transition:all 0.3s}
+.why-card h3{font-family:'Fredoka',sans-serif;font-size:19px;font-weight:600;color:var(--red);margin-bottom:8px}
+.why-card p{font-size:14px;color:var(--text2);line-height:1.6}
+
+/* DELIVERY AREAS */
+.delivery-info{padding:60px 64px;text-align:center;position:relative;z-index:1;background:var(--card)}
+.delivery-info h2{font-family:'Fredoka',sans-serif;font-size:clamp(28px,3.5vw,40px);font-weight:600;margin-bottom:8px;letter-spacing:-0.5px}
+.delivery-info h2 span{color:var(--red)}
+.delivery-info > p{font-size:15px;color:var(--text2);max-width:520px;margin:0 auto 32px}
+.delivery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:700px;margin:0 auto}
+.delivery-item{background:var(--bg);padding:20px 16px;border-radius:20px;border:1px solid var(--border);transition:all 0.3s}
+.delivery-item:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(211,47,47,0.08);border-color:var(--red4)}
+.delivery-item .d-icon{font-size:28px;margin-bottom:6px}
+.delivery-item h4{font-family:'Fredoka',sans-serif;font-size:15px;font-weight:600;color:var(--text)}
+.delivery-item p{font-size:13px;color:var(--text2)}
+
+/* CTA */
+.cta-section{padding:100px 64px;text-align:center;position:relative;overflow:hidden;z-index:1}
+.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(211,47,47,0.04),transparent 70%);pointer-events:none;animation:gentlePulse 6s ease-in-out infinite}
+
+.cta-section h2{font-family:'Fredoka',sans-serif;font-size:clamp(36px,5vw,60px);font-weight:600;letter-spacing:-1px;margin-bottom:12px;position:relative}
+.cta-section h2 em{color:var(--red);font-style:normal}
+.cta-section p{font-size:15px;color:var(--text2);max-width:440px;margin:0 auto 32px;position:relative}
+.cta-btns{display:flex;gap:14px;justify-content:center;position:relative;flex-wrap:wrap}
+.btn-orange{display:inline-block;background:var(--accent);color:#fff;font-family:'Fredoka',sans-serif;font-size:17px;font-weight:500;padding:18px 44px;text-decoration:none;border-radius:50px;transition:all 0.3s;box-shadow:0 4px 16px rgba(211,47,47,0.2)}
+.btn-orange:hover{background:var(--red2);transform:translateY(-4px) scale(1.04);box-shadow:0 12px 32px rgba(211,47,47,0.35)}
+.btn-outline{display:inline-block;border:2px solid var(--red);color:var(--red);font-family:'Fredoka',sans-serif;font-size:17px;font-weight:500;padding:16px 36px;text-decoration:none;border-radius:50px;transition:all 0.3s}
+.btn-outline:hover{background:var(--red3);transform:translateY(-3px) scale(1.03);border-color:var(--accent)}
+.cta-contact{margin-top:28px;font-size:14px;color:var(--text2);position:relative}
+.cta-contact a{color:var(--red);font-weight:600;text-decoration:none}
+.cta-contact a:hover{text-decoration:underline;color:var(--accent)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(6px);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;animation:fadeIn 0.3s ease}
+.modal-overlay.show{display:flex}
+.modal{background:var(--card);border-radius:32px;padding:40px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;position:relative;animation:bounceIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both}
+.modal-close{position:absolute;top:16px;right:20px;font-size:28px;cursor:pointer;color:var(--text2);background:none;border:none;line-height:1;transition:color 0.2s}
+.modal-close:hover{color:var(--text)}
+.modal h2{font-family:'Fredoka',sans-serif;font-size:28px;font-weight:600;margin-bottom:6px}
+.modal p{font-size:14px;color:var(--text2);margin-bottom:24px}
+.modal-options{display:flex;flex-direction:column;gap:12px}
+.modal-option{background:var(--bg);border-radius:20px;padding:16px 20px;border:1px solid var(--border);transition:all 0.25s}
+.modal-option:hover{border-color:var(--red4);box-shadow:0 4px 16px rgba(211,47,47,0.06)}
+.modal-option h3{font-family:'Fredoka',sans-serif;font-size:17px;font-weight:600;margin-bottom:4px}
+.modal-option p{font-size:13px;color:var(--text2);margin-bottom:0}
+.modal-option .opt-btns{display:flex;gap:8px;margin-top:10px}
+.modal-option .opt-btns a{font-family:'Fredoka',sans-serif;font-size:13px;font-weight:500;padding:8px 18px;border-radius:50px;text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:4px}
+.opt-wa{background:var(--green);color:#fff}
+.opt-wa:hover{background:#4a8f68;transform:translateY(-1px)}
+.opt-em{background:var(--red3);color:var(--red)}
+.opt-em:hover{background:var(--red4);transform:translateY(-1px)}
+.opt-call{background:var(--accent2);color:var(--accent)}
+.opt-call:hover{background:var(--accent);color:#fff;transform:translateY(-1px)}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* TOAST */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:var(--text);color:var(--card);padding:12px 28px;border-radius:50px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:600;z-index:300;opacity:0;transition:all 0.4s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-10px)}
+
+/* FOOTER */
+footer{padding:32px 64px;border-top:2px solid var(--border);display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;background:var(--card)}
+footer p{font-size:12px;color:var(--text2);letter-spacing:0.02em}
+footer p span{color:var(--red);font-weight:600;transition:color 0.2s}
+footer p span:hover{color:var(--accent)}
+
+@media(max-width:900px){
+  nav{padding:12px 24px}
+  nav .nav-name{font-size:18px}
+  .hero{grid-template-columns:1fr}
+  .hero-right{height:50vw;border-radius:40px;margin:0 24px 24px}
+  .hero-left{padding:60px 32px 20px}
+  .img-strip{padding:0 24px}
+  .img-strip-inner{grid-template-columns:repeat(2,1fr)}
+  .img-strip-item{height:130px}
+  .bio{grid-template-columns:1fr;padding:60px 32px}
+  .about-more{grid-template-columns:1fr;padding:60px 32px;gap:32px}
+  .products{padding:60px 32px}
+  .products-grid{grid-template-columns:1fr}
+  .delivery-info{padding:60px 32px}
+  .delivery-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .why{padding:60px 32px}
+  .cta-section{padding:80px 32px}
+  .cta-btns{flex-direction:column;align-items:center}
+  footer{padding:24px 28px;flex-direction:column;gap:8px;text-align:center}
+}
+@media(max-width:600px){
+  .hero-left{padding:40px 20px 20px}
+  .hero-title{font-size:clamp(36px,10vw,48px)}
+  .bio{padding:40px 20px}
+  .about-more{padding:40px 20px}
+  .products{padding:40px 20px}
+  .delivery-info{padding:40px 20px}
+  .why{padding:40px 20px}
+  .cta-section{padding:60px 20px}
+  nav{padding:10px 16px}
+  nav .nav-name{font-size:16px}
+  nav a.nav-cta{font-size:13px;padding:8px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="floating-deco fd1">✦</div>
+<div class="floating-deco fd2">🐟</div>
+<div class="floating-deco fd3">✦</div>
+<div class="floating-deco fd4">★</div>
+<div class="floating-deco fd5">✦</div>
+
+<div class="fish-float f1">🐟</div>
+<div class="fish-float f2">🐠</div>
+<div class="fish-float f3">🐟</div>
+<div class="fish-float f4">🐡</div>
+<div class="fish-float f5">🐠</div>
+<div class="fish-float f6">🐟</div>
+<div class="fish-float f7">🐠</div>
+
+
+
+<nav>
+  <div class="nav-name" style="font-size:26px;display:flex;align-items:center;gap:10px"><img src="logo.png" alt="Samaki House" style="height:40px;width:auto;border-radius:8px"> <span style="color:var(--red)">Samaki</span> <span style="color:#1a1a1a">House</span></div>
+  <a href="tel:+254726392091" class="nav-cta">Order Now</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Fresh Tilapia &middot; Delivered to Your Door</div>
+    <h1 class="hero-title">Lake to Plate<em>Tilapia.</em></h1>
+    <div class="hero-sub">Family Pack &mdash; 3 Big Pieces</div>
+    <div class="hero-price">KSh 1,500 &ndash; 2,500</div>
+    <p class="hero-body">Juicy, fresh tilapia straight from the farm. Perfect for your family table. Price depends on size, location, and delivery distance around Nairobi.</p>
+    <div>
+      <a href="#" class="cta-primary" onclick="openModal();return false">🐟 Order Now</a>
+      <a href="#pricing" class="cta-secondary">See Sizes &amp; Prices</a>
+    </div>
+  </div>
+  <div class="hero-right" style="background-image:url('logo.png')">
+    <div class="hero-img-placeholder">
+      <div class="initials"></div>
+    </div>
+  </div>
+</div>
+
+<section class="bio">
+  <img class="bio-photo" src="IMG-20260620-WA0009.jpg" alt="Fresh Tilapia">
+  <div class="bio-content">
+    <span class="section-label">About Samaki House</span>
+    <h2>Fresh Tilapia, <span>Big Flavour</span></h2>
+    <p><strong>Samaki House</strong> brings you the freshest tilapia from trusted farms around Nairobi. Each Family Pack contains <strong>3 big, juicy pieces</strong> &mdash; perfect for frying, stewing, or grilling for the whole family.</p>
+    <p>We know good fish. That's why we source only the best-quality tilapia, clean and prepare it with care, and deliver it straight to your doorstep. No middlemen, no fuss &mdash; just delicious, farm-fresh fish.</p>
+    <p>Whether you're cooking for a weekend family meal, a special occasion, or just craving some good old fried fish with ugali, Samaki House has you covered.</p>
+    <div style="margin-top:16px">
+      <span class="bio-tag">Fresh Tilapia</span>
+      <span class="bio-tag">Family Pack</span>
+      <span class="bio-tag">3 Pieces</span>
+      <span class="bio-tag">Nairobi Delivery</span>
+      <span class="bio-tag">Farm Sourced</span>
+    </div>
+  </div>
+</section>
+
+<div class="img-strip">
+  <div class="img-strip-inner">
+    <div class="img-strip-item">
+      <img src="IMG-20260620-WA0011.jpg" alt="Fresh fish" loading="lazy">
+      <span class="strip-label">Fresh Catch</span>
+    </div>
+    <div class="img-strip-item">
+      <img src="IMG-20260620-WA0012.jpg" alt="Tilapia" loading="lazy">
+      <span class="strip-label">Tilapia</span>
+    </div>
+    <div class="img-strip-item">
+      <img src="IMG-20260620-WA0014.jpg" alt="Cooking fish" loading="lazy">
+      <span class="strip-label">Cooking</span>
+    </div>
+    <div class="img-strip-item">
+      <img src="IMG-20260620-WA0015.jpg" alt="Family meal" loading="lazy">
+      <span class="strip-label">Family Meal</span>
+    </div>
+  </div>
+</div>
+
+<section class="products" id="pricing">
+  <span class="section-label">Our Menu</span>
+  <h2>Family Pack Options</h2>
+  <p>Choose your size. We deliver fresh tilapia straight to your kitchen across Nairobi.</p>
+  <div class="products-grid">
+
+    <div class="product-card">
+      <div class="product-icon">🐟</div>
+      <h3>Small Family Pack</h3>
+      <p>3 medium-sized tilapia &mdash; great for a small family meal. Light, fresh, and easy to cook.</p>
+      <div class="price-tag">1,500 KSh <span class="price-usd">(~$12)</span></div>
+      <p style="margin-top:14px">Perfect for 2&ndash;3 people. Medium-sized fish, cleaned and ready to cook.</p>
+      <ul>
+        <li>3 medium tilapia</li>
+        <li>Cleaned &amp; scaled</li>
+        <li>Ready to cook</li>
+        <li>Delivery within Nairobi</li>
+        <li>Pay on delivery (M-Pesa)</li>
+      </ul>
+      <a href="tel:+254726392091" class="product-btn">Call to Order</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">🐠</div>
+      <h3>Standard Family Pack</h3>
+      <p>3 large tilapia &mdash; perfect for a hearty family meal. Our most popular choice.</p>
+      <div class="price-tag">2,000 KSh <span class="price-usd">(~$15)</span></div>
+      <p style="margin-top:14px"><strong>Best seller!</strong> Large, juicy fish that feeds 3&ndash;5 people. Great value.</p>
+      <ul>
+        <li>3 large tilapia</li>
+        <li>Cleaned &amp; scaled</li>
+        <li>Ready to cook</li>
+        <li>Delivery within Nairobi</li>
+        <li>Pay on delivery (M-Pesa)</li>
+      </ul>
+      <a href="tel:+254726392091" class="product-btn">Call to Order</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">🐡</div>
+      <h3>Jumbo Family Pack</h3>
+      <p>3 jumbo-sized tilapia &mdash; for when you want to feast! Big, thick, and full of flavour.</p>
+      <div class="price-tag">2,500 KSh <span class="price-usd">(~$19)</span></div>
+      <p style="margin-top:14px"><strong>Premium choice.</strong> Extra-large fish, perfect for frying or stewing. Feeds 4&ndash;6.</p>
+      <ul>
+        <li>3 jumbo tilapia</li>
+        <li>Cleaned &amp; scaled</li>
+        <li>Ready to cook</li>
+        <li>Delivery within Nairobi</li>
+        <li>Pay on delivery (M-Pesa)</li>
+      </ul>
+      <a href="tel:+254726392091" class="product-btn">Call to Order</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon">🍳</div>
+      <h3>Custom Order</h3>
+      <p>Need a specific size or quantity? Want to order for an event or bulk? We've got you.</p>
+      <div class="price-tag">Custom Pricing</div>
+      <p style="margin-top:14px">Events, bulk orders, or special requests. Call or WhatsApp to discuss your needs.</p>
+      <ul>
+        <li>Bulk orders welcome</li>
+        <li>Event catering</li>
+        <li>Custom quantities</li>
+        <li>Wholesale pricing</li>
+        <li>Call to discuss</li>
+      </ul>
+      <a href="https://wa.me/254726392091?text=Hi%20Samaki%20House%2C%20I%20want%20to%20make%20a%20custom%20order." target="_blank" class="product-btn">WhatsApp Us</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="about-more">
+  <div>
+    <span class="section-label"> Delivery</span>
+    <h2>We Deliver <span>Across Nairobi</span></h2>
+    <p>We use a dedicated rider to deliver your fresh tilapia straight to your doorstep. Delivery is available across Nairobi &mdash; price depends on your location.</p>
+    <p>Order in the morning, get it the same day! We ensure your fish arrives fresh, well-packaged, and ready to cook.</p>
+    <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+      <span style="font-size:28px;animation:float 6s ease-in-out infinite">🐟</span>
+      <span style="font-size:28px;animation:float 7s ease-in-out infinite 1s">🛵</span>
+      <span style="font-size:28px;animation:float 5s ease-in-out infinite 2s">🐠</span>
+      <span style="font-size:28px;animation:float 8s ease-in-out infinite 0.5s">📍</span>
+    </div>
+    <div class="about-img">
+      <img src="IMG-20260620-WA0016.jpg" alt="Fresh tilapia cooking" loading="lazy">
+      <div class="about-img-overlay">
+        <span>🐟 Fresh from farm to table</span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="quote-bubble">
+      <blockquote>Fresh tilapia delivered to your doorstep &mdash; no stress, no queues. Just good fish, ready to cook and enjoy with your family.</blockquote>
+      <div class="quote-author">— Samaki House Nairobi</div>
+    </div>
+  </div>
+</section>
+
+<section class="delivery-info">
+  <h2>Delivery <span>Areas</span></h2>
+  <p>We deliver all around Nairobi. Our rider brings your fresh tilapia right to your door.</p>
+  <div class="delivery-grid">
+    <div class="delivery-item">
+      <div class="d-icon">📍</div>
+      <h4>Nairobi CBD</h4>
+      <p>Fast delivery to the city centre</p>
+    </div>
+    <div class="delivery-item">
+      <div class="d-icon">📍</div>
+      <h4>Eastlands</h4>
+      <p>Donholm, Buru, Pipeline &amp; more</p>
+    </div>
+    <div class="delivery-item">
+      <div class="d-icon">📍</div>
+      <h4>Westlands</h4>
+      <p>Parklands, Kilimani, Lavington</p>
+    </div>
+    <div class="delivery-item">
+      <div class="d-icon">📍</div>
+      <h4>South B &amp; C</h4>
+      <p>Lang'ata, Karen, Ongata Rongai</p>
+    </div>
+    <div class="delivery-item">
+      <div class="d-icon">📍</div>
+      <h4>Kasarani</h4>
+      <p>Mwiki, Kasarani, Thika Road</p>
+    </div>
+    <div class="delivery-item">
+      <div class="d-icon">📍</div>
+      <h4>Outside Nairobi?</h4>
+      <p>Call to arrange special delivery</p>
+    </div>
+  </div>
+</section>
+
+<section class="why" style="background:var(--bg)">
+  <h2>Why <span>Samaki House?</span></h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="emoji">🐟</div>
+      <h3>Farm Fresh</h3>
+      <p>We source direct from trusted farms &mdash; no middlemen, no frozen stock, just fresh tilapia.</p>
+    </div>
+    <div class="why-card">
+      <div class="emoji">🛵</div>
+      <h3>Fast Delivery</h3>
+      <p>Order by 10 AM, get same-day delivery. Our rider brings it straight to your kitchen.</p>
+    </div>
+    <div class="why-card">
+      <div class="emoji">💰</div>
+      <h3>Best Value</h3>
+      <p>Family pack of 3 from just 1,500 KSh. Fresh, affordable, and no hidden charges.</p>
+    </div>
+  </div>
+</section>
+
+<div class="img-strip">
+  <div class="img-strip-inner">
+    <div class="img-strip-item">
+      <img src="IMG-20260620-WA0024.jpg" alt="Fish meal" loading="lazy">
+      <span class="strip-label">Delicious Meals</span>
+    </div>
+    <div class="img-strip-item">
+      <img src="IMG-20260620-WA0027.jpg" alt="Fresh fish" loading="lazy">
+      <span class="strip-label">Fresh Supply</span>
+    </div>
+    <div class="img-strip-item">
+      <img src="IMG-20260620-WA0008(1).jpg" alt="Fish frying" loading="lazy">
+      <span class="strip-label">Frying</span>
+    </div>
+    <div class="img-strip-item">
+      <img src="IMG-20260620-WA0008.jpg" alt="Food" loading="lazy">
+      <span class="strip-label">Family Table</span>
+    </div>
+  </div>
+</div>
+
+<section class="cta-section" id="order">
+  <h2>Order Your Pack<em> Today!</em></h2>
+  <p>Fresh tilapia family pack delivered to your Nairobi doorstep. Call or WhatsApp to order now.</p>
+  <div class="cta-btns">
+    <a href="tel:+254726392091" class="btn-orange">Call 0726 392 091</a>
+    <a href="https://wa.me/254726392091?text=Hi%20Samaki%20House!%20I%20want%20to%20order%20a%20Tilapia%20Family%20Pack." target="_blank" class="btn-outline">WhatsApp Us</a>
+  </div>
+  <div class="cta-contact">
+    <a href="mailto:deekevin12@gmail.com">deekevin12@gmail.com</a> &nbsp;|&nbsp; <a href="tel:+254726392091">0726 392 091</a>
+  </div>
+  <div style="margin-top:28px;font-size:20px;letter-spacing:8px;opacity:0.2;position:relative">
+    🐟 🐠 🐟 🐠 🐟
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal-overlay" id="bookModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <h2>🐟 Order Now</h2>
+    <p>Choose your pack, then call or WhatsApp to place your order.</p>
+    <div class="modal-options">
+      <div class="modal-option">
+        <h3>🐟 Small Family Pack</h3>
+        <p>3 medium tilapia &middot; 1,500 KSh</p>
+        <div class="opt-btns">
+          <a class="opt-call" href="tel:+254726392091">Call Now</a>
+          <a class="opt-wa" href="https://wa.me/254726392091?text=Hi%20Samaki%20House%2C%20I%20want%20to%20order%20a%20Small%20Family%20Pack%20(3%20medium%20tilapia%2C%201%2C500%20KSh)." target="_blank">WhatsApp</a>
+        </div>
+      </div>
+      <div class="modal-option">
+        <h3>🐠 Standard Family Pack</h3>
+        <p>3 large tilapia &middot; 2,000 KSh</p>
+        <div class="opt-btns">
+          <a class="opt-call" href="tel:+254726392091">Call Now</a>
+          <a class="opt-wa" href="https://wa.me/254726392091?text=Hi%20Samaki%20House%2C%20I%20want%20to%20order%20a%20Standard%20Family%20Pack%20(3%20large%20tilapia%2C%202%2C000%20KSh)." target="_blank">WhatsApp</a>
+        </div>
+      </div>
+      <div class="modal-option">
+        <h3>🐡 Jumbo Family Pack</h3>
+        <p>3 jumbo tilapia &middot; 2,500 KSh</p>
+        <div class="opt-btns">
+          <a class="opt-call" href="tel:+254726392091">Call Now</a>
+          <a class="opt-wa" href="https://wa.me/254726392091?text=Hi%20Samaki%20House%2C%20I%20want%20to%20order%20a%20Jumbo%20Family%20Pack%20(3%20jumbo%20tilapia%2C%202%2C500%20KSh)." target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal(){document.getElementById('bookModal').classList.add('show')}
+function closeModal(){document.getElementById('bookModal').classList.remove('show')}
+document.getElementById('bookModal').addEventListener('click',function(e){if(e.target===this)closeModal()})
+</script>
+
+<footer>
+  <p>&copy; 2026 Samaki House &middot; Fresh Tilapia Nairobi</p>
+  <p>🐟 Call us: <a href="tel:+254726392091" style="color:var(--red);text-decoration:none;font-weight:600">0726 392 091</a> &nbsp;|&nbsp; <a href="mailto:deekevin12@gmail.com" style="color:var(--red);text-decoration:none;font-weight:600">deekevin12@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
